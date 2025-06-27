@@ -1,6 +1,6 @@
 <html>
   <head>
-    <!-- Google tag (gtag.js) -->
+       <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PGB0RSKC4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -9,7 +9,6 @@
 
   gtag('config', 'G-0PGB0RSKC4');
 </script>
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -24,6 +23,7 @@
   <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/bootstrap.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='crisnpr11.svg')  }}" />
   <title>CriSNPr</title>
+
   <!-- Custom styles for this template -->
   <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/sticky-footer.css" rel="stylesheet">
   <script>
@@ -46,10 +46,10 @@
 
 
 .click_me {
-  background: linear-gradient(to right, #f97171 0%, #f99192 28%, #8ad6cc 91%, #b2eee6 100%);
-
 /*  background:  linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
-  
+  /*background: linear-gradient(to right, #772953 0%, # 28%, #EB6536 100%,#E95420 100% );*/
+  background: linear-gradient(to right, #E95420 0%, #EB6536 28%, #925375 100%,#772953 100% );
+
   border: none;
   color: white;
   padding: 5px 10px;
@@ -61,20 +61,10 @@
 
 }
   .navbar-custom {
-   /* background: linear-gradient(to right, #f97171 0%, #f99192 28%, #8ad6cc 91%, #b2eee6 100%);*/
+    background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );
 
-   /* background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );*/
-/*   background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
-/*  background: rgb(34,195,145);*/
-/*background: linear-gradient(0deg, rgba(34,195,145,1) 0%, rgba(45,196,253,1) 100%);*/
-/*background-color: #74EBD5;*/
-background: linear-gradient(to right, #16A085 0%, #F4D03F 28%, #16A085 100%);
-/*background-image: linear-gradient(to right #16A085 0%, #F4D03F 28%, #F4D03F 55%, #16A085 100%);*/
-
-/*background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);*/
-
-
-/*background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);*/
+/*    background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);*/
+    /*background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
 
 
 }
@@ -162,86 +152,100 @@ background: linear-gradient(to right, #16A085 0%, #F4D03F 28%, #16A085 100%);
   </head>
   <body>
    
-    <nav class="navbar navbar-expand-sm navbar-custom bg-primary  fixed-top ">
+    <nav class="navbar navbar-expand-sm navbar-custom bg-primary  fixed-top">
       <!-- Brand/logo       <a class="navbar-brand" href="http://jatayuv2.igib.res.in/">
         <img src="/static/images/jatayu1.png" alt="logo" style="width:60px; "> 
       </a>-->
-
+      <ul class="navbar-nav">
+        <li class="nav-item"  style="padding-left: 50px;"  >
+          <a class="nav-link" href="{{ url_for('index') }}" style="color: blueviolet; padding: 2px;" > 
+            <img src= "/static/crisnpr11b.png" alt="CriSNPr" style="width: 60px;height: 60px;"> 
+           </a>
+         </li>
+        </ul>
       
       <!-- Links -->
       <ul class="navbar-nav ml-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" href="#" style="color: #772953;font-size: 30px;">Instructions</a>
-        </li>
-
-       <li class="nav-item">
-          <a class="nav-link" href="#" style="color: #772953;font-size: 30px;">Contact Us</a>
-        </li>
-
-        <!--<li class="nav-item">
-          <a class="nav-link" href="#"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"></a>
-        </li> -->
-      </ul>
+      
+           <li class="nav-item">
+             <a class="nav-link" href="{{ url_for('instructions') }}" style="color: #772953;font-size: 30px;">Instructions</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('form3') }}" style="color: #772953;font-size: 30px;">Contact Us</a>
+          </li>
+  
+           <!--<li class="nav-item">
+             <a class="nav-link" href="#"></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#"></a>
+           </li> -->
+         </ul>
     </nav>
 
        
-
     <div class="s010">
     
-      <div id="container" style="padding-top: 5px; margin-top: 60px; margin-bottom: 10px; padding-left: 40px;" >
-         
-          <h1 style="color: #925375;font-size: 55;" >PhytoCat</h1>
-           <p  style="font-size: 20;" >Webserver for Phytochemical Database</p>
-           <div class="row">
-            <div class="col">
-               
+        <form method="POST"  action="/covid_snvs" role="form1" enctype="multipart/form-data">
+     
+          {{ form.csrf_token }}
+          <fieldset>
 
-              <a href="{{ url_for('form') }}"><h6 style="font-size: 30;color: #84377D;" >  Search by Phytochemical Name    </h6> </a>
+          <div class="inner-form">
+            <p style="color:red;font-size: 21px;font-weight: bold;">Enter Mutation :</p>
+          <div class="basic-search">
+
+              
+     
+            <div class="input-field">
+
+                <!--"(ORF1ab|^S|ORF3a|E|M|ORF6|ORF7a|ORF8|N|ORF10)"-->
+              <input id="search" type="search" name="RSID" id="RSID" placeholder="S_E484K" value="S_E484K"  title="Mutation format not correct!"  /> <!--required pattern="^S_[a-zA-Z0-9]+"-->
+                            <div class="icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </div>
             </div>
+          </div>
+          <div class="advance-search">
+            <span class="desc">EXAMPLE SEARCH</span>
+            <div class="row">
+             <!-- <a href="" target="_blank" class="click_me" data-value="rs879066637" >rs879066637</a> 
+              <a href="" target="_blank" class="click_me" data-value="rs5910" >rs5910</a>  -->
+   
+                 <input type="button" class="click_me" data-value="S_E484K" value="S_E484K"/> 
+                  <input type="button" class="click_me" data-value="S_N501Y" value="S_N501Y"/> 
+                  <input type="button" class="click_me" data-value="S_D614G" value="S_D614G"/> 
+                  <input type="button" class="click_me" data-value="S_L452R" value="S_L452R"/> </br>
+                 <!-- <p style="margin-top: 30px;" > Enter Gene name followed by '_', reference amino acid, position and alternate amino acid.  </p> -->
 
-            
-            <div class="col" >
-               
+                  
+                 <!-- <input type="button" class="clear_me" value="Clear"/>-->
+            </div>
+          </div>
 
-              <a href="#"><h6 style="font-size: 30;color: #924D8B;margin-left: 20px;" > Search by Gene Name </h6> </a>
- 
-             
-             </div>              
-
-
+               <div class="input-field">
                 
-            
+                <div class="group-btn">
+                  <button class="btn-delete" id="delete" style="margin-top: 10px;">CLEAR</button>
+                  <button class="btn-search">SEARCH</button>
+                   
+                  {% for category, message in get_flashed_messages(with_categories=true) %}
+                  <p class="alert-{{ category }}" >{{ message }}</p>
+
+                    {% endfor %}   
+                </div>
 
 
+              </div>
           </div>
-         
-          <div class="row"style="padding-top: 5px; margin-top: 20px; " >
-            <div class="col"> 
-              <a href="{{ url_for('form1') }}"><h6 style="font-size: 30;color: #E95420;"  > Search by Plant Name </h6> </a>
-
-
-              
-            </div>
-            <div class="col"> 
-              <a href="{{ url_for('alphabatical') }}"><h6 style="font-size: 30;color: #e98620;margin-left: 20px;"  > Search Alphabetically </h6> </a>
-
-
-              
-            </div>
-
-
-          </div>
-
-
-      </div>
-
-
-      <div class="footer" >
-        <span  >Powered by , CSIR-IGIB</span> <br>
+          
+        </fieldset>
+      </form>
+  
+      <div class="footer">
+        <span  >Powered by RNA Biology Lab, CSIR-IGIB</span> <br>
         <!--<span style="font-size: 20px;">Visitors : {{visitors}}</span>-->
         </div>
     

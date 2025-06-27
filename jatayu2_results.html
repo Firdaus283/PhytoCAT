@@ -22,9 +22,8 @@
   <link rel="stylesheet"  href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='phytocat.png')  }}" />
-  <title>PhytoCAT</title>
-
+  <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='crisnpr11.svg')  }}" />
+  <title>CriSNPr</title>
 
   <script  src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 
@@ -46,16 +45,7 @@
 
 }
   .navbar-custom {
-    width: 100%;
-    margin: 0;
-padding: 0;
-display:flex;
-flex-direction:row;
-
-    background: #556B2F !important;
-
-
-/*    background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );*/
+    background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );
 
 /*    background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);*/
     /*background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
@@ -69,18 +59,18 @@ flex-direction:row;
 }
 /* change the link color and add padding for height */
 .navbar-custom .navbar-nav .nav-link {
-  color: navy;
-  padding: 0.4rem 0.4rem;
+  color: blueviolet;
+  padding: 1rem 1rem;
 }
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-  color: #bab86c;
-  border:1px solid #bab86c;  
+  color: #ffffff;
+  border:1px solid whitesmoke;  
 
 
 }.navbar-custom {
-  background-color: navy;
+  background-color: blueviolet;
 }
 
 /* change the brand and text color */
@@ -97,7 +87,7 @@ flex-direction:row;
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-  color: #bab86c;
+  color: #ffffff;
 }
 
 /* for dropdown only - change the color of droodown */
@@ -105,7 +95,7 @@ flex-direction:row;
   background-color: #ff5500;
 }
 .navbar-custom .dropdown-item {
-  color: #bab86c;
+  color: #ffffff;
 }
 .navbar-custom .dropdown-item:hover,
 .navbar-custom .dropdown-item:focus {
@@ -133,7 +123,6 @@ flex-direction:row;
 
 
 
-
 table.dataframe, .dataframe th, .dataframe td {
     border:1px solid ;
     border-bottom: 1px solid #C8C8C8;
@@ -156,10 +145,9 @@ table,  th,  td {
     table-layout: fixed; 
 }
 .sgrna th  {
-background-color:#378b29;
-color: paleturquoise;
-
-font-weight: 1000;
+background-color:#e4e4b1;
+color: #800000;
+font-weight: bold;
 
 }
 .sgrna td  {
@@ -168,7 +156,7 @@ color: black;
 }
 
 .primer th {
-background-color: #378b29;
+background-color: #e4e4b1;
 color: #800000;
 }
 
@@ -179,18 +167,11 @@ color: blue;
 
 
 
-td:first-child {
-  font-weight: 800;
- 
-}
-
-
-
 td:nth-child(8)	{  word-break: break-all; }
 .primer tbody>td>:nth-child(6){   word-break: break-all; }
 
-tr:nth-child(odd)		{ background-color:#fff; }
-tr:nth-child(even)	{ background-color:#eee; }
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)	{ background-color:#fff; }
 
 
 
@@ -217,9 +198,6 @@ tr:hover            { background-color: #ffff99;}
    text-align: center;
 } 
 
-h1 {
-    font-family: Papyrus, fantasy;
-}
 
 
 
@@ -229,64 +207,31 @@ h1 {
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-custom bg-primary py-0 nav-upper">
-      <div class="container-fluid" style="margin-top: -10px;padding-bottom: -10px;"> 
-      <!-- Brand/logo      -->
-
-        
-      <a class="navbar-brand" href="#" style="margin-top: 0px;">
-        <img src="/static/logo.png" alt="" width="70" height="90">
-      </a>
-          
-
-
-
-         <a class="navbar-brand text-center" style="margin-left: 100px;"  href="{{ url_for('index') }}"> <h1>PhytoCAT </h1> </br><p style="margin-top: -40px;"><u>PhytoC</u>hemicals <u>A</u>ffordable <u>T</u>herapeutics for Breast Cancer  </p>
-        <!--<img src="/static/phytocat.png" alt="logo" style="width:80px;height:50px; "> -->
-      </a>
+    <nav class="navbar navbar-expand-sm navbar-custom bg-primary ">
+      <!-- Brand/logo -->
+     <!-- <a class="navbar-brand" href="http://jatayuv2.igib.res.in/">
+        <img src="/static/images/jatayu1.png" alt="logo" style="width:60px; "> 
+      </a>-->
       
-      <a class="navbar-brand navbar-right" href="#" style="margin-top: -30px;">
-        <img src="/static/igib.png" alt="" width="100" height="50">
-      </a>
-
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-light  py-0 nav-lower" style="background-color:#556B2F ;">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
-
-
-          <ul class="navbar-nav ms-auto mt-2 mt-lg-0" > 
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('index') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "> <span style="background-color: #355E3B		;">Home</span></a>
-        </li>  
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('faq1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">FAQs</span></a>
-        </li>  
-
-
-       <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('contact1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;"><span style="background-color: #355E3B		;">Contact Us</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('help1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">Help</span></a>
-        </li>
-
-
-      </ul>
-      </div>
-    </div>
-
-
-      </div>
       <!-- Links -->
-      
-    </nav>
+      <ul class="navbar-nav">
+        <li class="nav-item"  style="padding-left: 50px;"  >
+          <a class="nav-link" href="{{ url_for('index') }}" style="color: blueviolet; padding: 2px;" > 
+            <img src= "/static/crisnpr11b.png" alt="CriSNPr" style="width: 60px;height: 60px;"> 
+           </a>
+         </li>
+        </ul>
+      <ul class="navbar-nav ms-auto">
+        
 
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+      </ul>
+    </nav>
 
    <!-- <div id="mySeqViewer1" class="SeqViewerApp" data-autoload> <a href="?embedded=true&appname=testapp1&id=NC_000001"></a> </div>-->
  
@@ -295,7 +240,11 @@ h1 {
   <div class="s010" >
         
     <div class="table-responsive-md" style="overflow: fixed; padding-top: 5px; margin-top: 70px; padding-left: 40px;font-size: 25px; font-weight: bold; font-family: Poppins;" >
+          <div id="sviewer_xahvx" class="SeqViewerApp" data-autoload style="margin-bottom: 25px;">
+            <a href="?embedded=true&id={{chrom}}&tracks=[key:sequence_track,name:T15993,display_name:Sequence,id:T15993,dbname:GenBank,category:Sequence,subcategory:Assembly,annots:NA,ShowLabel:false,ColorGaps:false,shown:true,order:1][key:gene_model_track,name:T2275599,display_name:Genes\, NCBI Homo sapiens Annotation Release 109.20211119,id:T2275599,dbname:SADB,category:Genes,subcategory:NCBI Genes,annots:NA000281575.1,Options:GeneOnly,CDSProductFeats:false,NtRuler:true,AaRuler:true,HighlightMode:2,ShowLabel:true,shown:true,order:53][key:SNP_track,name:T2164428,display_name:Clinical\, dbSNP b155 v2,id:T2164428,dbname:VDB,category:Variation,subcategory:dbSNP Build 155 (Homo sapiens Annotation Release 109),annots:NA000193272.7\2320,Layout:Adaptive,shown:true,order:113][key:SNP_track,name:T2164437,display_name:Live RefSNPs\, dbSNP b155 v2,id:T2164437,dbname:VDB,category:Variation,subcategory:dbSNP Build 155 (Homo sapiens Annotation Release 109),annots:NA000193272.7\2317,Layout:Adaptive,shown:true,order:150,comments:{{comments1}} |{{var_pos}}][key:feature_track,name: primer ,display_name:PRIMER,Layout:Adaptive,LinkedFeat:Packed,read_range:44372360 ]&assm_context=GCF_000001405.39&mk={{coo1}}|crRNA|green,{{coo1_cas12}}|Cas12|red,{{primer1_fw}}|Primer1 Forward|blue,{{primer1_rw}}|Primer1 Reverse|blue,{{primer2_fw}}|Primer2 Forward|red,{{primer2_rw}}|Primer2 Reverse|red,|08&v={{coo}}&c=666699&select=null&slim=0&appname=CriSNPr"></a>
           
+          </div>
+        
         <div class="container"  >
           
             <div class="row justify-content-md-center"style="margin-left:50px;margin-top: 40px;  ">
@@ -307,121 +256,40 @@ h1 {
              </div>
         </div>
         
-        <table class="sgrna" style="white-space: pre-line;"> 
+        <table class="sgrna"> 
           <tr>
          {% for column in df1.columns %}
          <th>{{ column }}</th>
          {% endfor %}
        </tr>
        {% for idx, row in df1.iterrows() %}
-       {% set row_loop = loop %}
-
        <tr>
 
            {% for colname in df1.columns %}
-           {% set col_loop = loop %}
+           {% if loop.index == 2 %}
 
-           {% if row_loop.index == 3 %} 
+           {% for cell in row %}
+           {% if loop.index == 2 %}
 
-           {% if col_loop.index == 2 %} 
-           
-           <td class="off"> {{row[0]}} </td>
-           <td class="off"><a href="https://pubmed.ncbi.nlm.nih.gov/{{row[1]}}" target="_blank"> {{row[1]}} </a></td>
-
-           {% endif %}
-
-
-           {% elif row_loop.index == 7 %} 
-
-           {% if col_loop.index == 2 %} 
-           {% if row[1] != 'NA' %} 
-           
-           <td class="off"> {{row[0]}} </td>
-
-           <td class="off">
-<a href="https://www.ncbi.nlm.nih.gov/taxonomy/?term={{row[1]}}" target="_blank"> {{row[1]}} </a></td>
-            <td class="off">
-    <a href="https://www.ncbi.nlm.nih.gov/taxonomy/?term={{row[2]}}" target="_blank"> {{row[2]}} </a></td>
-
-
-
-	   <!--		   <a href="https://powo.science.kew.org/results?q={{row[1]}}" target="_blank"> {{row[1]}} </a></td>-->
-           <!--<td class="off"><a href="https://cb.imsc.res.in/imppat/phytochemical/{{row[1]}}" target="_blank"> {{row[1]}} </a></td>-->
-
+           <td class="off"><a href="https://pubmed.ncbi.nlm.nih.gov/{{cell}}" target="_blank"> {{cell}} </a></td>
            {% else %}
-           <td > {{row[0]}} </td>
-           <td > {{row[1]}} </td>
            {% endif %}
 
-           {% endif %}
-
-
-
- 
-
-           
-           {% elif row_loop.index == 18 %} 
-
-           {% if col_loop.index == 2 %} 
-           {% if row[1] != 'NA' %} 
-           
-           <td class="off"> {{row[0]}} </td>
-           <td class="off"><a href="https://pubchem.ncbi.nlm.nih.gov/compound/{{row[1]}}" target="_blank"> {{row[1]}} </a></td>
-
-
-
-           {% else %}
-           <td > {{row[0]}} </td>
-           <td > {{row[1]}} </td>
-           {% endif %}
-
-           {% endif %}
-
-           {% elif row_loop.index == 19 %} 
-
-           {% if col_loop.index == 2 %} 
-           {% if row[1] != 'NA' %} 
-
-           <td class="off"> {{row[0]}} </td>
-           <td class="off"><a href="https://pubmed.ncbi.nlm.nih.gov/?term={{row[1]}}" target="_blank"> {{row[1]}} </a></td>
-
-
-
-           {% else %}
-           <td > {{row[0]}} </td>
-           <td > {{row[1]}} </td>
-           {% endif %}
-           {% endif %}
-
-
-
-
-           {% elif row_loop.index == 20 %} 
-
-           {% if col_loop.index == 2 %} 
-           {% if row[1] != 'NA' %} 
-
-           <td class="off"> {{row[0]}} </td>
-           <td class="off"><a href="{{row[1]}}" target="_blank"> {{row[1]}} </a></td>
-
-           {% else %}
-           <td > {{row[0]}} </td>
-           <td > {{row[1]}} </td>
-           {% endif %}
-           {% endif %}
-           
-
-
-           {% else %}
-
-
-
+           {% endfor %}
            <td>{{row[colname]}}</td>
-           {% endif %}
+
+           {% else %}
+
+          {% endif %}
            {% endfor %}
        </tr>
        {% endfor %}
-       </table>
+
+      </table>
+
+
+           
+           
     </div>
 
   </div>
@@ -435,73 +303,107 @@ h1 {
 
     <script>
 
+$(document).ready(function() {
+  $(".sgrna td:nth-child(1)").each(function() {
+      var sequence2=  $(this).text();  // $(".sgrna td:nth-child(1)").text(); //.html("NEW");
+      var diff_pos= $(this).parent().find('td:nth-last-child(2)').text();
+      var diff_pos2= $(this).parent().find('td:nth-last-child(1)').text();
+      var cas_system= $(this).parent().find('td:nth-last-child(4)').text();
+      var diff_pos1 = Number(diff_pos) + 1 ;
+      var diff_pos22 = Number(diff_pos2) + 1 ;
+      var len1 = sequence2.length;
+      //var s1 = $('[sequence2$='GG']') ;
+      //var s1=("[sequence2^='CC']"); 
+      //var s1 = sequence2.endsWith("GG");
+      //var s11 = sequence2.startsWith("TT");
+     //    
+     // var sequence21 =sequence2; 
+     // var se1 =  sequence21.substr(0,14);
+     // var se2 =  sequence21.substr(14,1);
+     // var se3 =  sequence21.substr(16,5);
+     // var se4 =  sequence21.substr(20,23);
+      //var seq12 = se1.fontcolor("purple") + se2.fontcolor("red") + se3.fontcolor("blue") + " " +  se4.fontcolor("orange");
+      
+     if (cas_system === "enFnCas9" ||  cas_system === "Fn/enFnCas9" ){
+      if ( Number(diff_pos) < Number(diff_pos2)){
+      var seq12 =   sequence2.slice(0,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,20).fontcolor("black") +   " " +sequence2.slice(20,23).fontcolor("orchid");
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 =   sequence2.slice(0,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,20).fontcolor("black") +   " " +sequence2.slice(20,23).fontcolor("orchid");
+      $(this).html(seq12);
 
 
 
+      }
+      }
+      else if ( cas_system === "AaCas12b") {
+        if ( Number(diff_pos) < Number(diff_pos2)){
+          var seq12 = sequence2.slice(0,3).fontcolor("orchid") +   " " + 
+           sequence2.slice(3,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,23).fontcolor("black") ;
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 = sequence2.slice(0,3).fontcolor("orchid") +   " " +  sequence2.slice(3,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,23).fontcolor("black") ;
+      $(this).html(seq12);
+      }
+      }
+      else if ( cas_system === "LbCas12a") {
+          var seq12 = sequence2.slice(0,4).fontcolor("orchid") +   " " +
+           sequence2.slice(4,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,22).fontcolor("black") ;
+      $(this).html(seq12);
+
+      
+      
+      }
+      else if (cas_system === "LwCas13a") {
+        if ( Number(diff_pos) < Number(diff_pos2)){
+      var seq12 = sequence2.slice(0,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,29).fontcolor("black") ;
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 =   sequence2.slice(0,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,29).fontcolor("black") ;
+      $(this).html(seq12);
+      }
+      }
+      else if (cas_system === "Cas14a") {
+
+        if ( Number(diff_pos) < Number(diff_pos2)){
+      var seq12 = sequence2.slice(0,4).fontcolor("orchid") +   " " +  sequence2.slice(4,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,24).fontcolor("black") ;
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 = sequence2.slice(0,4).fontcolor("orchid") +   " " +  sequence2.slice(4,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,24).fontcolor("black") ;
+      $(this).html(seq12);
+      }
+      }
+      else if (cas_system === "Cas14a/ssDNA") {
+        if ( Number(diff_pos) < Number(diff_pos2)){
+      var seq12 = sequence2.slice(0,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,29).fontcolor("black") ;
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 =   sequence2.slice(0,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,29).fontcolor("black") ;
+      $(this).html(seq12);
+      }
+      }
+
+      
+
+  });
+
+
+    });
     $(document).ready( function () {
     $('#table1').DataTable();
 } );
 
 </script>
-<footer class="text-center text-lg-start bg-body-tertiary text-muted"  >
-  <!-- Section: Links  -->
-
-
-<section class="d-flex justify-content-center justify-content-lg-between" style="background-color:#BEBEBE	; ">
-  <div class="container text-center text-md-start mt-1" >
-    <!-- Grid row -->
-    <div class="row mt-3" style="margin-bottom: -40px;">
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-        <!-- Content -->
-        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
-          <i class="fas fa-gem me-3"></i>Related Database
-        </h6>
-        <p>
-         <a href="https://cb.imsc.res.in/imppat/"  >  IMPPAT </a> 
-        </p>
-      </div>
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-        <!-- Links -->
-        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
-          Related Links
-        </h6>
-        <p>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/" >PubMed</a>
-        </p>
-        <p>
-          <a href="https://pubchem.ncbi.nlm.nih.gov/" >PubChem</a>
-        </p>
-                </div>
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-        <!-- Links -->
-        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
-Database information          </h6>
-        <p>
-          <a href="{{ url_for('static', filename='Download_data_phytoCAT.tsv')  }}" >Download Data</a>
-        </p>
-                </div>
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-        <!-- Links -->
-        <h6 class="text-uppercase fw-bold mb-4"  style="color: black;">Contact</h6>
-        <p><i class="fas fa-home me-3"></i> CSIR-IGIB, Mathura Road, New Delhi</p>
-       
-      </div>
-      <!-- Grid column -->
-    </div>
-    <!-- Grid row -->
-  </div>
-</section>
-<!-- Section: Links  -->
-
-<!-- Copyright -->
-<div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05);text-decoration: underline;">
-Website copyright @ Institute of Genomics and Integrative Biology. All Right Reserved.
-  
-<!--<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>-->
-</div>
-<!-- Copyright -->
-</footer>
 
   </body> 
 </html>

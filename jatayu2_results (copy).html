@@ -250,36 +250,22 @@ tr:hover            { background-color: #ffff99;}
             <div class="row justify-content-md-center"style="margin-left:50px;margin-top: 40px;  ">
               <div class="col-md-auto  bg-contain border-dark rounded rounded-3 border border-2"style="margin-bottom:10px;color:brown;background-color:#F4D03F; ">
               <!--  background-color:#34c6eb;-->
-              <h3  style="font-size:20px;margin-top: 5px;" >{{Feature}} </a></h3 >
+              <h3  style="font-size:20px;margin-top: 5px;" >Phytochemical Name : {{Phytochemical}} </a></h3 >
               </div>
               
              </div>
         </div>
         
-        <table class="sgrna"> 
-          <tr>
-         {% for column in selectdf.columns %}
-         <th>{{ column }}</th>
-         {% endfor %}
-       </tr>
-       {% for idx, row in selectdf.iterrows() %}
-       <tr>
 
-           {% for colname in selectdf.columns %}
-           {% if loop.index == 1 %} 
-           <td class="off"><a href="{{ url_for('phytochemical',my_var=row[0]) }}" target="_blank"> {{row[0]}} </a></td>
-           {% else %}
-
-           <td>{{row[colname]}}</td>
-           {% endif %}
-           {% endfor %}
-       </tr>
-       {% endfor %}
-
-      </table>
 
            
            
+            {% for table in tables %}
+            <h2 style="color: #377ba8;margin: 10;font-size: 1.2em; padding-bottom: 5px;"></h2>
+
+                 {{ table|safe }}
+
+            {% endfor %}          
     </div>
 
   </div>
@@ -289,7 +275,133 @@ tr:hover            { background-color: #ffff99;}
           
     </div>
     <script src="static/js1/extention/choices.js"></script>
+    <script type="text/javascript" src="https://www.ncbi.nlm.nih.gov/projects/sviewer/js/sviewer.js"> </script>
 
+    <script>
+
+$(document).ready(function() {
+  $(".sgrna td:nth-child(1)").each(function() {
+      var sequence2=  $(this).text();  // $(".sgrna td:nth-child(1)").text(); //.html("NEW");
+      var diff_pos= $(this).parent().find('td:nth-last-child(2)').text();
+      var diff_pos2= $(this).parent().find('td:nth-last-child(1)').text();
+      var cas_system= $(this).parent().find('td:nth-last-child(4)').text();
+      var diff_pos1 = Number(diff_pos) + 1 ;
+      var diff_pos22 = Number(diff_pos2) + 1 ;
+      var len1 = sequence2.length;
+      //var s1 = $('[sequence2$='GG']') ;
+      //var s1=("[sequence2^='CC']"); 
+      //var s1 = sequence2.endsWith("GG");
+      //var s11 = sequence2.startsWith("TT");
+     //    
+     // var sequence21 =sequence2; 
+     // var se1 =  sequence21.substr(0,14);
+     // var se2 =  sequence21.substr(14,1);
+     // var se3 =  sequence21.substr(16,5);
+     // var se4 =  sequence21.substr(20,23);
+      //var seq12 = se1.fontcolor("purple") + se2.fontcolor("red") + se3.fontcolor("blue") + " " +  se4.fontcolor("orange");
+      
+     if (cas_system === "enFnCas9" ||  cas_system === "Fn/enFnCas9" ){
+      if ( Number(diff_pos) < Number(diff_pos2)){
+      var seq12 =   sequence2.slice(0,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,20).fontcolor("black") +   " " +sequence2.slice(20,23).fontcolor("orchid");
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 =   sequence2.slice(0,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,20).fontcolor("black") +   " " +sequence2.slice(20,23).fontcolor("orchid");
+      $(this).html(seq12);
+
+
+
+      }
+      }
+      else if ( cas_system === "AaCas12b") {
+        if ( Number(diff_pos) < Number(diff_pos2)){
+          var seq12 = sequence2.slice(0,3).fontcolor("orchid") +   " " + 
+           sequence2.slice(3,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,23).fontcolor("black") ;
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 = sequence2.slice(0,3).fontcolor("orchid") +   " " +  sequence2.slice(3,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,23).fontcolor("black") ;
+      $(this).html(seq12);
+      }
+      }
+      else if ( cas_system === "LbCas12a") {
+          var seq12 = sequence2.slice(0,4).fontcolor("orchid") +   " " +
+           sequence2.slice(4,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,22).fontcolor("black") ;
+      $(this).html(seq12);
+
+      
+      
+      }
+      else if (cas_system === "LwCas13a") {
+        if ( Number(diff_pos) < Number(diff_pos2)){
+      var seq12 = sequence2.slice(0,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,29).fontcolor("black") ;
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 =   sequence2.slice(0,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,29).fontcolor("black") ;
+      $(this).html(seq12);
+      }
+      }
+      else if (cas_system === "Cas14a") {
+
+        if ( Number(diff_pos) < Number(diff_pos2)){
+      var seq12 = sequence2.slice(0,4).fontcolor("orchid") +   " " +  sequence2.slice(4,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,24).fontcolor("black") ;
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 = sequence2.slice(0,4).fontcolor("orchid") +   " " +  sequence2.slice(4,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,24).fontcolor("black") ;
+      $(this).html(seq12);
+      }
+      }
+      else if (cas_system === "Cas14a/ssDNA") {
+        if ( Number(diff_pos) < Number(diff_pos2)){
+      var seq12 = sequence2.slice(0,diff_pos).fontcolor("black") +  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big() +  sequence2.slice(diff_pos1,diff_pos2).fontcolor("black")+  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+        sequence2.slice(diff_pos22,29).fontcolor("black") ;
+      $(this).html(seq12);
+
+      }
+      else{
+        var seq12 =   sequence2.slice(0,diff_pos2).fontcolor("black") +  sequence2.slice(diff_pos2,diff_pos22).fontcolor("yellowgreen").big()+ sequence2.slice(diff_pos22,diff_pos).fontcolor("black")+  sequence2.slice(diff_pos,diff_pos1).fontcolor("orangered").big()+    sequence2.slice(diff_pos1,29).fontcolor("black") ;
+      $(this).html(seq12);
+      }
+      }
+
+      
+
+
+
+      //$('.sgrna tr').find('td:eq(11),th:eq(11)').remove();
+
+      //$(this).children('td:nth-child(11)').filter();
+
+      //$(this).find('td:eq(11)').remove();
+
+      //$(this).parent().find('td:nth-child(11)').remove();
+       //var seq12 =   sequence2.substr(0,20).fontcolor("green") +   " " +sequence2.substr(20,23).fontcolor("red");
+      //sequence2.substr(16,1).fontcolor("orange") +" " +sequence2.substr(17,20).fontcolor("red");
+      //$("#muatated").html(seq1);
+
+
+      //}
+      //else {    
+        //var seq12 =   sequence2.substr(0,3).fontcolor("red") +   " " +sequence2.substr(3,23).fontcolor("green");
+        //$(this).html(seq12);
+
+          //             }
+      
+  });
+ $('.sgrna th:nth-last-child(-n+2), .sgrna td:nth-last-child(-n+2)').remove();
+
+
+    });
+    $(document).ready( function () {
+    $('#table1').DataTable();
+} );
+
+</script>
 
   </body> 
 </html>
